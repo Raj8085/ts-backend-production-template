@@ -2,11 +2,11 @@
   "name": "nodejs_backend_production",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
     "dist" : "npx tsc",
-    "dev": "nodemon src/index.ts",
-    "start": "nodemon dist/index.js",
+    "dev": "nodemon src/server.ts",
+    "start": "nodemon dist/server.js",
     "prepare": "husky"
   },
   "keywords": [],
