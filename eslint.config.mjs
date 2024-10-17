@@ -20,6 +20,6 @@ export default tseslint.config({
     ],
     rules : {
       "no-console" : "error",
-      quotes : ["error","single",{allowTemplateLiterals : true}],
+      quotes : ["error","double",{allowTemplateLiterals : true}],
     }
 })
