@@ -1,14 +1,13 @@
 import dotenvFlow from "dotenv-flow";
+import logger from "../util/logger";
 
 const result = dotenvFlow.config();
 
 if (result.error) {
-    // eslint-disable-next-line no-console
-    console.error("Error loading .env files", result.error);
-    throw result.error; // Optionally throw an error to stop execution
+    logger.error("Error loading .env files", result.error);
+    throw result.error; 
 }
-    // eslint-disable-next-line no-console
-console.log("Environment Variables:", {
+    logger.log("Environment Variables:", {
     ENV: process.env.ENV,
     PORT: process.env.PORT,
     SERVER_URL: process.env.SERVER_URL
