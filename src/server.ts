@@ -1,5 +1,6 @@
 import app from "./app";
 import config from "./config/config";
+import databaseService from "./service/databaseService";
 import logger from "./util/logger";
 // const server = app.listen(config.PORT)
 const server = app.listen(config.PORT, () => {
@@ -7,8 +8,17 @@ const server = app.listen(config.PORT, () => {
     console.info(`Server running on ${config.SERVER_URL}`);
 });
 
-;(()=>{  
+// eslint-disable-next-line @typescript-eslint/no-floating-promises
+;(async()=>{  
     try {
+
+        const connection =await databaseService.connect()
+        logger.info(`DATABASE_CONNECTED`,{
+            meta : {
+                CONNECTION_NAME : connection.name
+            }
+        })
+
         logger.info(`APPLICATION_STARTED`,{
             meta : {
                 PORT : config.PORT,
